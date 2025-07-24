@@ -12,11 +12,9 @@ if sides.isnumeric() == True:
         choice = input('Press enter to roll. ')
         if choice == '':
             result = random.randint(1, int(sides))
-            print(f'({result})')
+            print(f'You rolled a {result}')
         elif choice == 'x' or choice == 'X':
             print('Thank you for playing.')
             break
-        else:
-            print('Invalid input inner.')
 else:
     print('Invalid input.')
