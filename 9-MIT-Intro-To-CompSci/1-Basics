@@ -1,0 +1,130 @@
+Lecture 1
+- Python Basics
+- Math Ops
+- Python Vars/Types
+
+Types of Knowledge
+- Declarative is a statements of fact
+    - The air contains nitrogen and oxygen
+- Imperative is a recipe / "how to"
+    - Step 1: Students sign up for raffle
+    - Step 2: Anna opens her IDE
+    - Step 3: Ana chooses a random number
+    - Step 4: Ana wins!
+
+What is a Recipe
+- A sequence of simple steps
+- Flow of control that specifies when each step is executed
+- A means of determining when to stop
+
+Computers Are Machines
+- Fixed Program Computer
+    - e.g. Calculator
+- Stored Program Computer
+    - machine stores and execs instructions
+    - sequence of instructions stored inside comp
+        1) math and logic
+        2) simple tests
+        3) moving data
+    - special program (interpreter) executes each instruction in order
+        - uses tests to change flow 
+        - stops when completed
+
+Basic Primitives
+- Turing showed you can compute anything using 6 primitives
+- Modern languages have more convenient sets of prims
+- Can abstract METHODS to create new prims
+- Anything computable in one coding lang can be done in another
+
+Creating Recipes
+- Prog lang provides set of prim ops
+- Expressions are complex combinations of prims in a prog lang
+- Expressions and computations have values and meanings in prog lang
+
+Aspects of Languages
+- Primitive Constructs
+    - EN: words
+    - Prog Lang: nums / strings / simple operators
+- Syntax
+    - EN:   "cat dog boy" is not syntactically valid
+            "cat bugs boy" is syntactically valid
+    - Prog Lang:"hi"5 isn't valid
+                3.2*5 is valid
+- Static Semantics is which syntactically valid strings have meaning
+    - EN:   "I are hungry" is syntactically valid but static semantic error
+    - Prog Lang:    3.2*5 is syntactically valid
+                    3+"hi" is static semantic error
+- Semantics: the meaning associated with a syntactically correct string of symbols with no static semantic errors (entirely correct)
+    - EN: can have many meanings
+        - e.g. "Flying planes can be dangerous"
+    - Prog Lang: have only one meaning but may not be what programmer intended it to be
+
+WHERE THINGS GO WRONG
+- Syntactic Errors
+    - Common, easy to catch
+- Static Semantic Errors
+    - Some langs check before running program
+    - Can cause unpredictable behaviour
+- No Semantic Errors BUT Different Meaning Than Intended
+    - Crashes / stops running
+    - Infinite loops
+    - Answer different from expected / desired result
+
+Python Program
+- a PROGRAM is a sequence of definitions and commands
+    - Definitions eval'd
+    - Commands executed by Python interpreter in shell
+- a COMMAND (statement) instructs the interpreter to do something
+- can be typed directly in a shell or stored in file that is read into the shell
+
+Objects
+- Progs manipulate data objects
+- Objects have a type that define the kinds of things progs can do with them
+- Objects are
+    - Scalar (cannot be subdivided)
+    - Non-Scalar (have internal structure that can be accessed)
+
+Scalar Objects
+- int (integers e.g. 5)
+- float (real numbers e.g. 3.26) (think decimals)
+- bool (boolean True / False vals)
+- NoneType (SPECIAL) (one value only: None)
+- type() can be used to see the type of an object
+
+Type Conversion (Casting)
+- can convert obj of one type to another
+- float(3) converts int 3 to float 3.0
+- int(3.9) truncates (removes decimal and anything after) float 3.9 to int 3
+
+Expressions
+- combine obj and ops to form expressions
+- expression has a value, which has a type
+- syntax for simple exp: <object> <operator> <object>
+
+OPERATORS ON ints and floats
+- i / j is division and results in a float
+- i % j is the remainder when i is divided by j
+- i ** j is i to the power of j
+
+Simple Operations
+- BEDMAS
+- Otherwise, operator precedence without parenthesis is:
+    1) **
+    2) *
+    3) /
+    4) + and - executred left to right as appears
+
+Binding Vars and Values and Abstracting Expressions
+- equal sign assigns a value to a variable name
+- give names to values to reuse names instead of values
+- easier to change the code later
+- can later re-bind var names using an assignment statement 
+    - e.g. radius = radius + 1
+
+Programming vs Math
+- in prog, we do not "solve for x", e.g.
+    pi = 3.14159
+    radius = 2.2
+    # area of circle
+    area = pi * (radius ** 2)
+    radius = radius + 1
