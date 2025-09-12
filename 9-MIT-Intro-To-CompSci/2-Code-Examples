@@ -1,0 +1,8 @@
+hi = "hello there"
+name = 'ana'
+greet = hi + name 
+greeting = hi + ' ' + name 
+print(greeting)
+
+text = input("Type anything... ")
+print(3 * text)

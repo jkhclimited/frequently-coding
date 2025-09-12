@@ -1,0 +1,82 @@
+Strings
+- letters, special chars, spaces, digits
+- enclose in single or double quotes
+- concatenate strings
+    name = 'ana'
+    greet = hi + name
+    greeting = hi + " " + name 
+
+INPUT: input("")
+- prints whatever is in the quotes
+- user types something in and hits enter 
+- binds that value to a var
+- e.g. text = input("Type anything... ")
+- input only gives you a string, so you need to cast it if working with numbers
+
+Comparison Operators: int, float, string 
+- i and j as var names 
+- comps below evaluate to a Boolean 
+    i > j
+    i >= j
+    i < j
+    i <= j
+    i == j (equality test, True if i == j)
+    i != j (inequality test, True if i is not the same as j)
+
+Control Flow - Branching
+-   if <condition>:
+        <expression>
+        <expression>
+        ...
+    elif <condition>:
+        <expression>
+        <expression>
+    else:
+        <expression>
+        <expression>
+-   while <condition>:
+        <expression>
+    <out of loop expression>
+    - while loops repeat until <condition> is false 
+
+Control Flow - while and for Loops 
+- Iterate through nums in a sequence 
+e.g. more lines
+n = 0
+while n < 5:
+    print(n)
+    n += 1
+e.g. more efficient
+for n in range(5):
+    print(n)
+    - This one automatically creates n = 0, and ticks up every iteration 
+
+range(start, stop, step)
+- Default values are start = 0, step = 1
+- Loops until value is stop - 1
+e.g.
+mysum = 0
+for i in range(5, 11, 2):
+    mysum += i 
+print(mysum)
+
+break Statement 
+- Immediately exits whatever loop its in
+- Skips remaining code in the block 
+- Exits only the loop that it's in 
+while <condition1>:
+    while <condition2>:
+        <expressionA>
+        break
+        <expressionB>
+    <expressionC>
+- expressionB does not happen
+
+for vs while loops
+- for loop                      - while loop
+- knows # of iterations         - unbounded # of iterations
+- can end early via break       - can end early via break
+- uses a counter                - can use counter but must initialize before loop and increment inside loop
+- can rewrite a for loop        - may not be able to rewrite a while loop
+  using a while loop              using a for loop 
+
