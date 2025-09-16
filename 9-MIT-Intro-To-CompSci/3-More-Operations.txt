@@ -1,0 +1,59 @@
+String Manipulations | Guess and Check Algos | Approx Sols | Bisection Method
+
+Strings
+- square brackets used to perform indexing
+    s = "abc"
+    s[0] -> "a" all the way to s[2] -> "c"
+    s[-1] -> "c"
+- can slice strings using [start:stop:step]
+- can give two nums in slice [start:stop], step = 1 by default
+    s = "abcedfgh"
+    s[3:6] -> "def"
+    s[3:6:2] -> "df"
+    s[4:1:-2] -> "ec"
+- strings are "immutable"
+    s = "hello"
+    s[0] = 'y' -> gives an error
+    s = 'y'+s[1:len(s)] -> is allowed, evals to "yello"
+
+Strings and Loops 
+s = "abcedfgh"
+for char in s:
+    if char == 'i' or char =='u':
+        print("There is an i or u")
+
+See Code Example for Exercise
+
+Guess-and-Check
+- Exhaustive enumeration
+- You can guess a value, check if the sol is correct, and keep at it 
+- Until sol is found or you've tried everything
+- cube root example:
+    cube = 8
+    for guess in range(abs(cube + 1))
+        if guess ** 3 >= abs(cube):
+            break
+    if guess ** 3 != abs(cube):
+        print(cube, 'is not a perfect cube')
+    else:
+        if cube < 0:
+            guess = -guess
+        print("Cube root of " + str(cube) + " is " + str(guess))
+
+Approximate Solutions 
+- good enough 
+- start with a guess and increment small values 
+- decreasing increment size -> slower program 
+- increasing epsilon -> less accurate answer 
+
+Bisection Search 
+- halve section each iteration 
+- new guess is halfway of new section 
+- search space
+    - first guess:      N/2
+    - second guess:     N/4
+    - kth guess:        N/2^k
+- guess converges on the order of log₂N
+- code example only works for positive cubes > 1
+    - for negative cubes we can use: abs(cube) and invert the guess afterwards
+    - for x < 1 we can use floats
