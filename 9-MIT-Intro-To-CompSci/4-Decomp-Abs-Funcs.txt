@@ -1,0 +1,53 @@
+Decomposition, Abstraction, Functions 
+
+Good Programming Practices
+- More code is not necessarily a good things
+- Intro Functions 
+- A mechanism to achieve decomp and abstraction
+
+Abstraction Idea
+- You don't need to know exactly how things work to use it, e.g. a projector connecting via a plug to show images
+
+Decomposition Idea
+- Different devices work teogether to achieve an end goal
+- Multiple components working together to produce a bigger end
+
+Create Structure with Decomp
+- Divide code into modules
+    - Self-contained
+    - Used to break up code
+    - Reusable
+    - Organized and coherent
+- For this lesson we achieve it with functions
+- Later, we achieve with classes
+
+Suppress details with Abstraction
+- Think of a piece of code as a black box
+- Can't see deets, don't need, don't want, and hide tedious coding deets
+- Function specs or docstrings can be used for this
+
+Functions
+- Reusable pieces/drunks of code
+- Name / Paramm / Docstring / Body / Returns something
+- If no return statement, Python returns value of "None"
+- Functions can be used as arguments
+
+Variable Scope
+- Formal param gets bound tot he value of actual param
+- new scope/frame/env created when enter a fucntion
+- scope is mapping of names to objs
+
+In Code Example!
+Global Scope            g scope              h scope
+g -> some code          x -> 3 -> 4          x -> 'abc'
+x -> 3                  h -> some code       returns 'None'
+                        returns 4
+
+Final Eval of Code:
+g -> Some code
+x -> 3
+z -> 4
+
+End Note
+- Decomp and abstraction means that code can be used many times
+- But only has to be debugged once, when it works it'll always work
