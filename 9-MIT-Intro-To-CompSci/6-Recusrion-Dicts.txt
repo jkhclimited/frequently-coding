@@ -1,0 +1,134 @@
+Recursion and Dictionaries
+- Recursion: Divide/Decrease and conquer
+- Dictionaries: another mutable object type
+
+Recursion
+- Algo: a way to design solutions to problems via divide and conquer
+- Reduce an issue to simpler versions of the same thing 
+- Semantically: A function that calls itself
+    - Must have 1 or more base cases that are easy to solve 
+    - Must solve the same problem on some other input 
+
+Multiplication is an Iterative Solution 
+- "multiply a and b" is just "add a to itself b times"
+- e.g.
+    def multiply_iter(a, b):
+        total = 0
+        while b > 0:
+            total += a 
+            b -= 1
+        return total 
+- recursive step 
+- a * b = a + a * (b-1)
+- keep reducing problem until you can reach a simple case that can be solved directly 
+- e.g.
+    def multiply_iter(a, b):
+        if b == 1:
+            return a
+        else:
+            return a + multiply_iter(a, b - 1)
+
+Factorials 
+- e.g. n! = n*(n-1)*(n-2)*(n-3)*...*1
+- What do we know?
+    - If n = 1, then 1! is just 1. This is the base case
+- How do we reduce the issue? Rewrite in terms of simpler to reach base case
+    - n*(n-1)!
+    - else: return n*fact(n-1)
+
+Observations
+- Each recursive call to a function creates its own scope/env
+- Bindings of vars in scope aren't changed by recursive call
+- Once func returns value, we return to the previous scope
+- How do we know recursive code ends? If it terminates according to a condition that is possible
+
+Mathematical Induction
+- To prove a statement indexed on ints is true for all vals of n 
+    - Prove its true when n is smallest value (e.g. n = 0)
+    - Then prove for any arbitrary value of n, it works
+- Example: 0+1+2+3+4+5+...+n = (n(n+1))/2
+- Proof:
+    - if n = 0, both sides are 0
+    - 0+1+2+...+k+(k+1) = ((k+1)(k+2))/2
+    - Left side is k(k+1)/2 + (k+1), which algebraicly becomes ((k+1)(k+2))/2
+- Same logic applies 
+    def mult(a, b):
+        if b == 1:
+            return a
+        else:
+            return a + mult(a, b-1)
+- Base case, we show mult must return correct answer, if b == 1 then it returns a 
+- Recursive case, we can show if it apples to b-1 then b will be correct
+- By induction, code correctly returns answer 
+
+Recursion Example with Fibonacci
+- e.g. newborn pari of rabbits (1 female, 1 male)
+- they mate at age of 1 month, have a 1 month gestation, assuming rabbits never die, each female produces one new pair every month from the 2nd month
+- how many are there at the end of 1 year?
+- Base cases:
+    - Females(0) = 1
+    - Females(1) = 1
+- Recursive case:
+    - Females(n) = Females(n-1) + Females(n-2)
+- Therefore, the example's code is:
+    def fib(x):
+        if x == 0 or x == 1:
+            return 1
+        else: 
+            fib(x - 1) + fib(x - 2)
+
+Recursion on Non-Numerics
+- How about non-numerics? E.g. a palindrome?
+- First we split the string into chars, strip out punctuation and spacing, and convert to lowercase
+- Then, the base case is a str of len 0 or 1 is a palidrome (duh)
+- Recursive is if the first and the last are the same, and the middle is the same.
+- e.g.
+    def isPalidrome(l):
+        def toChars(l):
+            l = l.lower()
+
+
+Divide and Conquer Algorithm: Dictionaries 
+- Solve a hard problem by breaking it down into a set of sub problems that are easier to solve
+- Store separate lists for each info tidbit, each list much have same len 
+- Info at same index per list refers to same target
+- This is messy, better to use a dictionary with 1 data structure not separate lists 
+- The Dictionary: Stores pairs of data in Key/Value pairs. 
+- Lookup: similar to indexing a list, look up the key and get the value associated 
+- e.g. grades = {'Ana':'B', 'John':'A+', 'Denise':'A', 'Katy':'A'} 
+- ADD an entry: grades['Sylvan'] = 'A'
+- TEST if key in dict: 'John' in grades -> returns True, 'Daniel' in grades -> returns False 
+- DELETE entry: del(grades['Ana'])
+- ITERABLES: grades.keys() and grades.values() (NOTE: These have no guaranteed order)
+
+Dict Keys and Values 
+- Values
+    - any type (immute and mutable) 
+    - can be dupes
+    - dict values can be lists or even more dicts 
+- Keys 
+    - must be unique
+    - immutable type (int, float, string, tuple, bool) 
+    - care when using float type as key 
+- No order to keys or values 
+- e.g.
+    d = {4:{1:0}, (1,3):"twelve", 'const':[3.14,2.7,8.44]}
+
+Example: Functions to analyze song lyrics with a frequency dictionary
+- See code-examples 
+
+Fibonacci with a Dictionary
+- e.g.
+    def fib_efficient(n, d):
+        if n in d:
+            return d[n]
+        else:
+            ans = fib_efficient(n-1, d) + fib_efficient(n-2, d)
+            d[n] = ans
+            return ans
+    d = {1:1, 2:2}
+    print(fib_efficient(6, d))
+- This method does a lookup first in case the val was already calc'd
+- Modifies dict as progressing through function calls 
+- Original fib sequence for 34 results in 11,405,773 recursive calls 
+- Efficient fib sequence for 34 results in only 65 calls! 
